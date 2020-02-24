@@ -383,7 +383,7 @@ export class StreamClient {
 
   // Retrieve activities by ID or foreign ID and time
   getActivities(params: object, callback: RestCallback): void;
-  getActivities(params: object): Promise<StreamData.Activity>;
+  getActivities(params: object): Promise<StreamData.FlatFeedFetchResponse>;
 
   // Partially update activity
   activityPartialUpdate(data: object, callback: RestCallback): void;
