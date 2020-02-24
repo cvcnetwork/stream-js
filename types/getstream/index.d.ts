@@ -12,6 +12,10 @@ export function connect(
 ): stream.Client;
 
 export class CollectionEntry {
+  collection: string;
+  id: string;
+  data: object;
+
   constructor(store: Collections, collection: string, id: string, data: object);
 
   // Get the entry from the Collection
