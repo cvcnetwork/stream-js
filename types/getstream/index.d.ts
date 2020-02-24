@@ -230,13 +230,21 @@ export class Reaction {
     kind: string,
     activity: string | Activity,
     data?: object,
-    targetFeeds?: string[],
+    target?: {
+      id?: string;
+      targetFeeds?: string[];
+      userId?: string;
+    },
   ): Promise<object>;
   add(
     kind: string,
     activity: string | Activity,
     data: object,
-    targetFeeds: string[],
+    target: {
+      id: string;
+      targetFeeds: string[];
+      userId: string;
+    },
     callback: RestCallback,
   ): void;
 
@@ -244,13 +252,21 @@ export class Reaction {
     kind: string,
     reaction: string | Reaction,
     data?: object,
-    targetFeeds?: string[],
+    target?: {
+      targetFeeds?: string[];
+      targetFeedsExtraData?: object;
+      userId?: string;
+    },
   ): Promise<object>;
   addChild(
     kind: string,
     reaction: string | Reaction,
     data: object,
-    targetFeeds: string[],
+    target: {
+      targetFeeds?: string[];
+      targetFeedsExtraData?: object;
+      userId?: string;
+    },
     callback: RestCallback,
   ): void;
 
@@ -264,7 +280,10 @@ export class Reaction {
   update(
     id: string,
     data: object,
-    targetFeeds: string[],
+    target: {
+      targetFeeds?: string[];
+      targetFeedsExtraData?: object;
+    },
     callback: RestCallback,
   ): void;
 
