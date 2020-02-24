@@ -239,7 +239,7 @@ export class Reaction {
       targetFeeds?: string[];
       userId?: string;
     },
-  ): Promise<object>;
+  ): Promise<Reaction>;
   add(
     kind: string,
     activity: string | Activity,
@@ -261,7 +261,7 @@ export class Reaction {
       targetFeedsExtraData?: object;
       userId?: string;
     },
-  ): Promise<object>;
+  ): Promise<Reaction>;
   addChild(
     kind: string,
     reaction: string | Reaction,
