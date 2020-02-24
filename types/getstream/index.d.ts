@@ -226,7 +226,37 @@ export class Feed {
   ): Promise<object>;
 }
 
+export type ReactionData = {
+  text?: string;
+};
+
+export type ReactionKindCounts = {
+  [kind: string]: number;
+};
+
+export type ReactionKindMap = {
+  [kind: string]: Reaction[];
+};
+
+export type ReactionKindNext = {
+  [kind: string]: {
+    next: string;
+  };
+};
+
 export class Reaction {
+  activity_id: string;
+  children_counts?: ReactionKindCounts;
+  created_at: string;
+  data: ReactionData;
+  id: string;
+  kind: string;
+  latest_children?: ReactionKindMap;
+  parent: string;
+  updated_at: string;
+  user_id: string;
+  user?: User;
+
   /** Construct Reaction. */
   constructor(client: StreamClient);
 
