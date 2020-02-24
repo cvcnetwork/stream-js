@@ -379,11 +379,11 @@ export class StreamClient {
 
   // Update activity
   updateActivity(activity: object, callback: RestCallback): void;
-  updateActivity(activity: object): Promise<object>;
+  updateActivity(activity: object): Promise<StreamData.Activity>;
 
   // Retrieve activities by ID or foreign ID and time
   getActivities(params: object, callback: RestCallback): void;
-  getActivities(params: object): Promise<object>;
+  getActivities(params: object): Promise<StreamData.Activity>;
 
   // Partially update activity
   activityPartialUpdate(data: object, callback: RestCallback): void;
