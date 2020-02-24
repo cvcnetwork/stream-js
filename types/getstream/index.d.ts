@@ -506,3 +506,110 @@ export type RestCallback = (
 ) => void;
 
 export type GenericCallback<T = any> = (data: T) => void;
+
+export namespace StreamData {
+  export type Activity = {
+    actor: User
+    created_at?: string
+    foreign_id?: string
+    id: string
+    latest_reactions?: ReactionKindMap
+    latest_reactions_extra?: ReactionKindNext
+    object: ActivityObject
+    origin?: string
+    own_reactions?: ReactionKindMap
+    reaction?: Reaction
+    reaction_counts?: ReactionKindCounts
+    target: string
+    time?: string
+    updated_at?: string
+    verb: string
+  }
+
+  export type ActivityGroup = {
+    activities: Array<Activity>
+    activity_count: number
+    actor_count: number
+    created_at?: string
+    group: string
+    id: string
+    is_read: boolean
+    is_seen: true
+    updated_at?: string
+    verb: string
+  }
+
+  export type ActivityObject = {
+    collection: string
+    created_at?: string
+    data: any
+    deletedAt?: string
+    error?: string
+    foreign_id: string
+    id: string
+    origin?: string
+    updated_at?: string
+  }
+
+  export type ActivityErrorObject = {
+    error: string
+    foreign_id?: string
+    id?: string
+  }
+
+  export type FlatFeedFetchResponse = {
+    duration: string
+    results: Activity[]
+  }
+
+  export type NotificationFeedFetchResponse = {
+    duration: string
+    results: ActivityGroup[]
+  }
+
+  export type Reaction = {
+    activity_id: string
+    children_counts?: ReactionKindCounts
+    created_at: string
+    data: ReactionData
+    id: string
+    kind: string
+    latest_children?: ReactionKindMap
+    parent: string
+    updated_at: string
+    user_id: string
+    user?: User
+  }
+
+  export type ReactionData = {
+    text?: string
+  }
+
+  export type ReactionKindCounts = {
+    [kind: string]: number
+  }
+
+  export type ReactionKindMap = {
+    [kind: string]: Reaction[]
+  }
+
+  export type ReactionKindNext = {
+    [kind: string]: {
+      next: string
+    }
+  }
+
+  export type User = {
+    created_at?: string
+    data: UserData
+    id: string
+    updated_at?: string
+  }
+
+  export type UserData = {
+    displayName: string
+    facebookId?: string
+    id: string
+    photoURL?: string
+  }
+} 
