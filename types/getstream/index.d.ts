@@ -304,13 +304,13 @@ export class Reaction {
     callback: RestCallback,
   ): void;
 
-  get(id: string): Promise<object>;
+  get(id: string): Promise<Reaction>;
   get(id: string, callback: RestCallback): void;
 
-  filter(conditions: object): Promise<object>;
+  filter(conditions: object): Promise<Partial<{ results: Reaction[] }>>;
   filter(conditions: object, callback: RestCallback): void;
 
-  update(id: string, data: object, targetFeeds?: string[]): Promise<object>;
+  update(id: string, data: object, targetFeeds?: string[]): Promise<Reaction>;
   update(
     id: string,
     data: object,
