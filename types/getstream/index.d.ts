@@ -140,15 +140,15 @@ export class Feed {
   );
 
   // Add activity
-  addActivity(activity: Activity): Promise<StreamData.Activity>;
+  addActivity(activity: Activity): Promise<Activity>;
   addActivity(activity: Activity, callback: RestCallback): void;
 
   // Remove activity
-  removeActivity(activityId: string | object): Promise<StreamData.Activity>;
+  removeActivity(activityId: string | object): Promise<Activity>;
   removeActivity(activityId: string | object, callback: RestCallback): void;
 
   // Add activities
-  addActivities(activities: Activity[]): Promise<StreamData.Activity[]>;
+  addActivities(activities: Activity[]): Promise<Activity[]>;
   addActivities(activities: Activity[], callback: RestCallback): void;
 
   // Follow feed
@@ -379,11 +379,16 @@ export class StreamClient {
 
   // Update activity
   updateActivity(activity: object, callback: RestCallback): void;
-  updateActivity(activity: object): Promise<StreamData.Activity>;
+  updateActivity(activity: object): Promise<Activity>;
 
   // Retrieve activities by ID or foreign ID and time
   getActivities(params: object, callback: RestCallback): void;
-  getActivities(params: object): Promise<StreamData.FlatFeedFetchResponse>;
+  getActivities(
+    params: object,
+  ): Promise<{
+    duration: string;
+    results: Activity[];
+  }>;
 
   // Partially update activity
   activityPartialUpdate(data: object, callback: RestCallback): void;
@@ -396,7 +401,7 @@ export class StreamClient {
   // Update activities
   updateActivities(
     activities: object[],
-    callback: (args: object[]) => void,
+    callback?: (args: object[]) => void,
   ): void;
 
   // Add activity to many feeds
