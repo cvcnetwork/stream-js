@@ -131,6 +131,11 @@ export class Personalization {
 }
 
 export class Feed {
+  client: StreamClient;
+  feedSlug: string;
+  token: string;
+  userId: string;
+
   /** Construct Feed. */
   constructor(
     client: StreamClient,
