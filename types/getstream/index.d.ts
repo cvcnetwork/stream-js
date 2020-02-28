@@ -361,6 +361,9 @@ export class StreamClient {
   // Get user agent
   userAgent(): string;
 
+  // Get analytics token
+  getAnalyticsToken(): string;
+
   // Get feed tokens
   getReadOnlyToken(feedSlug: string, userId: string): string;
   getReadWriteToken(feedSlug: string, userId: string): string;
